@@ -10,10 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406080933) do
+ActiveRecord::Schema.define(version: 20170430153251) do
 
   create_table "locations", force: :cascade do |t|
-    t.string   "roomNo"
+    t.integer  "building"
+    t.integer  "level"
+    t.integer  "room"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

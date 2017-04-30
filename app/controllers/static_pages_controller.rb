@@ -5,9 +5,6 @@ class StaticPagesController < ApplicationController
   def category
   end
 
-  def locations
-  end
-
   def login
   end
 end

@@ -11,9 +11,4 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get locations" do
-    get locations_path
-    assert_response :success
-  end
-
 end
