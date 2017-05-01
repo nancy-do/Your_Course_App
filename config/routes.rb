@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'categories/new'
+
+  get 'categories/show'
+
+  get 'categories/create'
+
   root 'static_pages#home'
   get  '/category',    to: 'static_pages#category'
   get  '/messages',  to: 'static_pages#messages'

@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
   def show
     #show courses scheduled in that location
+    @locations = Location.all
   end
   
   def new
@@ -10,7 +11,7 @@ class LocationsController < ApplicationController
   def create 
     @location = Location.new(location_params)
     if @location.save
-      flash[:success] = "Location successfully created "
+      flash[:success] = "Location successfully created"
       redirect_to messages_path
     else
       render 'new'
