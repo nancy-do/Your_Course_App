@@ -8,10 +8,18 @@ class LocationsController < ApplicationController
   end 
   
   def create 
+    @location = Location.new(location_params)
+    if @location.save
+      flash[:success] = "Location successfully created "
+      redirect_to messages_path
+    else
+      render 'new'
+    end
   end
   
   private
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    def location_params
+      params.require(:location).permit(:building, :level, :room)
     end
+
 end

@@ -3,8 +3,10 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    
     <%= form_for(@location, url: createlocation_path) do |f| %>
-
+    
+      <%= render 'shared/error_messages' %>
       <%= f.label :building %>
       <%= f.number_field :building, class: 'form-control' %>
 

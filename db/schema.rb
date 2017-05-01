@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 20170430153251) do
 
   create_table "locations", force: :cascade do |t|
-    t.integer  "building"
-    t.integer  "level"
-    t.integer  "room"
+    t.integer  "building",   null: false
+    t.integer  "level",      null: false
+    t.integer  "room",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
