@@ -1,0 +1,8 @@
+<div class= "container">
+    <h1>Locations</h1>
+    <div class="list-group">
+        <% @locations.each do |location| %>
+            <%= link_to location.locationName, "#", class:"list-group-item" %>
+        <% end %>
+    </div>
+</div>

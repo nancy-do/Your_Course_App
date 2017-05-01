@@ -1,13 +1,4 @@
 class StaticPagesController < ApplicationController
-  def home
-  end
-
-  def category
-  end
-
-  def locations
-  end
-
-  def login
+  def messages
   end
 end
