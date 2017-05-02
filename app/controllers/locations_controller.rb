@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
     if @location.save
       flash[:success] = "Location successfully created"
-      redirect_to messages_path
+      redirect_to locations_path
     else
       render 'new'
     end
