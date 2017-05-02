@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  last: MyString
   email: MyString
 
 two:
   name: MyString
-  last: MyString
   email: MyString
