@@ -5,4 +5,5 @@ class User < ApplicationRecord
   # VALID_EMAIL_REGEX = /\d/
   validates :email, presence: true, length: {minimum: 4}, format: {with: VALID_EMAIL_REGEX, message: "Email Registration only open to RMIT staff" }, uniqueness: { case_sensitive: false }
   has_secure_password
+  validates :password, presence: true, length: {minimum: 6}
 end
