@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   root 'static_pages#home'
   get  '/category',    to: 'static_pages#category'
   get  '/messages',  to: 'static_pages#messages'
@@ -13,6 +11,12 @@ Rails.application.routes.draw do
   get '/categories', to: 'categories#show'
   get  '/create_category', to: 'categories#new'
   post  '/create_category', to: 'categories#create'
+  
+  get '/courses', to: 'courses#show'
+  get 'courses/edit'
+  get 'courses/destroy'
+  get '/create_course', to: 'courses#new'
+  post '/create_course', to: 'courses#create'
   
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
