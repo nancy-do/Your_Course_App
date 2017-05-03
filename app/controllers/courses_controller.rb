@@ -14,5 +14,6 @@ class CoursesController < ApplicationController
   end
 
   def create
+    ##TODO: Implement this
   end
 end
