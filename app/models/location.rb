@@ -4,6 +4,8 @@ class Location < ApplicationRecord
     validates :level, presence: true
     validates :room, presence: true
     
+    has_many :courses
+    
     def locationName
         "#{building}.#{level}.#{room}"
     end

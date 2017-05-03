@@ -1,18 +1,13 @@
 class CoursesController < ApplicationController
-  def new
-    @course = Course.new
-  end
-
   def show
-    @courses = Course.all
   end
 
-  def edit
-  end
-
-  def destroy
+  def new
   end
 
   def create
+  end
+
+  def update
   end
 end

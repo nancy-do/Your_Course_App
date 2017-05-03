@@ -1,8 +1,12 @@
 class LocationsController < ApplicationController
   def show
     #show courses scheduled in that location
-    @locations = Location.all
+    #@locations = Location.all
   end
+  
+  def index
+    @locations = Location.all
+  end 
   
   def new
     @location = Location.new
