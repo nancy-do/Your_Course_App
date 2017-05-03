@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
    @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome #{@user.name}!" 
+      flash[:success] = "Your account has been successfully regeistered" 
       
       # Go to home page when logged in
       # This is just for temporary
