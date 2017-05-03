@@ -6,7 +6,12 @@ class UsersController < ApplicationController
   def create
    @user = User.new(user_params)
     if @user.save
-      # Handle a successful save.
+      flash[:success] = "Welcome #{@user.name}!" 
+      
+      # Go to home page when logged in
+      # This is just for temporary
+      # We might direct user's to other page
+      redirect_to root_path
     else
       render 'new'
     end
