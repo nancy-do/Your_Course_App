@@ -1,11 +1,11 @@
 class CreateCourses < ActiveRecord::Migration[5.0]
   def change
     create_table :courses do |t|
-      t.string :name
-      t.integer :prerequisite
+      t.string :name, null: false 
+      t.integer :prerequisite, :default => 0
       t.string :description
-      t.integer :category_id
-      t.integer :location_id
+      t.integer :category_id, :null => false, :references => [:categories, :id]
+      t.integer :location_id, :null => false, :references => [:locations, :id]
 
       t.timestamps
     end

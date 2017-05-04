@@ -4,12 +4,8 @@ one:
   name: MyString
   prerequisite: 1
   description: MyString
-  category_id: 1
-  location_id: 1
 
 two:
   name: MyString
   prerequisite: 1
   description: MyString
-  category_id: 1
-  location_id: 1
