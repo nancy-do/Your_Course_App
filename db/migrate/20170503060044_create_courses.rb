@@ -4,6 +4,8 @@ class CreateCourses < ActiveRecord::Migration[5.0]
       t.string :name, null: false 
       t.integer :prerequisite, :default => 0
       t.string :description
+      
+      
       t.integer :category_id, :null => false, :references => [:categories, :id]
       t.integer :location_id, :null => false, :references => [:locations, :id]
 

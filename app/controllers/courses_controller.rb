@@ -33,4 +33,8 @@ class CoursesController < ApplicationController
     def location_params
       params.require(:course).permit(:locations)
     end
+    
+    def category_params
+      params.require(:course).permit(:categories)
+    end
 end
