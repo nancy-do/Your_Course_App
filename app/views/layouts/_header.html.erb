@@ -9,8 +9,10 @@
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Category<b class="caret"></b></a>
            <ul class="dropdown-menu">
               <li><%= link_to "View all", categories_path %></li>
+              <% if logged_in? %>
                 <li class="divider"></li>
                 <li><%= link_to "Create category", create_category_path %></li>
+              <% end %>
            </ul>
           
         </li>
@@ -21,12 +23,19 @@
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Locations<b class="caret"></b></a>
            <ul class="dropdown-menu">
               <li><%= link_to "View all", locations_path %></li>
+              <% if logged_in? %>
                 <li class="divider"></li>
                 <li><%= link_to "Create Location", create_location_path %></li>
+              <% end %>
            </ul>
         </li>
         
-        <li><%= link_to "Create course", create_course_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Create course", create_course_path %></li>
+          <li><%= link_to "Log out", logout_path , method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
     
       </ul>
       
