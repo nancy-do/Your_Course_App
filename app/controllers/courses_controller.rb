@@ -15,8 +15,10 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
 
     if @course.save
+      @course.locations << Location.find(location_params)
+      @course.categories <<  Category.find(category_params)
       flash[:success] = "Course successfully created"
-      redirect_to course_path
+      redirect_to courses_path
     else
       render 'new'
     end
@@ -31,10 +33,10 @@ class CoursesController < ApplicationController
     end
     
     def location_params
-      params.require(:course).permit(:locations)
+      params[:course][:locations]
     end
     
     def category_params
-      params.require(:course).permit(:categories)
+      params[:course][:categories]
     end
 end

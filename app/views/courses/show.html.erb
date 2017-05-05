@@ -1,2 +1,8 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
+<div class= "container">
+    <h1>Courses</h1>
+    <div class="list-group">
+        <% @courses.each do |course| %>
+            <%= link_to course.name, "#", class:"list-group-item" %>
+        <% end %>
+    </div>
+</div>
