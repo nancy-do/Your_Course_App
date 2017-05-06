@@ -22,7 +22,7 @@
       <div class="form-inline">
         <% @locations.each do |location| %>
           <%= f.check_box( :locations, {class: 'form-control'}, location.id)%>
-          <%= l.locationName %>
+          <%= location.locationName %>
         <% end %>
       </div>
       

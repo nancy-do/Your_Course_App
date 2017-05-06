@@ -8,7 +8,8 @@ class CategoriesController < ApplicationController
   end 
 
   def show
-    @categories = Category.all
+    @category = Category.find(params[:id])
+    @courses = @category.courses
   end
 
   def create

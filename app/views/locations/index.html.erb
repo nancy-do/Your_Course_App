@@ -2,7 +2,7 @@
     <h1>Locations</h1>
     <div class="list-group">
         <% @locations.each do |location| %>
-            <%= link_to location.locationName, "#", class:"list-group-item" %>
+            <%= link_to location.locationName, location_path(:id => location.id), class:"list-group-item" %>
         <% end %>
     </div>
 </div>

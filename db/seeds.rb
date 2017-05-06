@@ -11,7 +11,11 @@
                     level: n+2, 
                     room: n+10)
 end 
-
+User.create!(name: "Exampl",
+            email: "example.example@rmit.edu.au",
+            password: "fooBar123$$$",
+            password_confirmation: "fooBar123$$$")
+            
 Category.create!(name:"Web Development")
 Category.create!(name:"Java")
 Category.create!(name:"Full Stack Dev")
