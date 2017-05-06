@@ -26,5 +26,9 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   resources :users
+  resources :locations
+  resources :courses
+  resources :categories
+  
 
 end

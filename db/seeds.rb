@@ -13,9 +13,19 @@
 end 
 
 Category.create!(name:"Web Development")
-Categroy.create!(name:"Java")
-Categroy.create!(name:"Full Stack Dev")
-Categroy.create!(name:"Application Development")
+Category.create!(name:"Java")
+Category.create!(name:"Full Stack Dev")
+Category.create!(name:"Application Development")
 
-#Courses.create!(name:"Intro to programming", )
-#Courses.create!()
+Course.create!(name:"Programming 1", prerequisite: "Professional Computing Practise", description:"Example Description" )
+Course.create!(name:"Professional Computing Practise", prerequisite: "Programming 1", description:"Example Description" )
+Course.create!(name:"Rapid Application Development", prerequisite: "Programming 1", description:"Example Description" )
+
+Course.first.locations << Location.find(1)
+Course.second.locations << Location.find(2)
+Course.third.locations << Location.find(3)
+
+Course.first.categories << Category.find(2)
+Course.second.categories << Category.find(2)
+Course.third.categories << Category.find(1)
+

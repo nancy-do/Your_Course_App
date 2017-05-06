@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
     @course = Course.new
     @locations = Location.all
     @categories = Category.all
+    @courses = Course.all
   end
   
   def create
@@ -33,10 +34,21 @@ class CoursesController < ApplicationController
     end
     
     def location_params
-      params[:course][:locations]
+      puts params[:course][:locations]
+      return params[:course][:locations]
+      # if (params[:course][:locations] == 0)
+      #   return nil
+      # else  
+      #   return params[:course][:locations]
+      # end
     end
     
     def category_params
-      params[:course][:categories]
+      return params[:course][:categories]
+      # if (params[:course][:categories] == 0)
+      #   return nil 
+      # else
+      #   return params[:course][:categories]
+      # end 
     end
 end

@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(version: 20170504073753) do
   end
 
   create_table "courses", force: :cascade do |t|
-    t.string   "name",                     null: false
-    t.integer  "prerequisite", default: 0
+    t.string   "name",         null: false
+    t.string   "prerequisite"
     t.string   "description"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "courses_locations", id: false, force: :cascade do |t|
