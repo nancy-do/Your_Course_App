@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170504073753) do
   create_table "categories_courses", id: false, force: :cascade do |t|
     t.integer "course_id",   null: false
     t.integer "category_id", null: false
+    t.index ["course_id", "category_id"], name: "index_categories_courses_on_course_id_and_category_id"
   end
 
   create_table "courses", force: :cascade do |t|
