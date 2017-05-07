@@ -16,9 +16,4 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get update" do
-    get courses_update_url
-    assert_response :success
-  end
-
 end

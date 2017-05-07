@@ -2,38 +2,6 @@
 <h1>Create a new course</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    
-    <%= form_for(@course, url: create_course_path) do |f| %>
-    
-      <%= render 'shared/course_error_messages' %>
-      
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-      
-      <%= f.label :prerequisite %>
-      <%= f.select :prerequisite, options_for_select(Course.all.map{ |c| [c.name, c.id] }) %>
-      
-      <%= f.label :description %>
-      <%= f.text_area :description, class: 'form-control', :cols => 10, :rows => 10 %>
-      
-
-  
-      <%= f.label :locations %>
-      <div class="form-inline">
-        <%= f.collection_check_boxes :location_ids, Location.all, :id, :locationName do |cb| %>
-          <% cb.label {cb.check_box + cb.text} %>
-        <% end %>
-      </div>
-      
-      <%= f.label :categories %>
-      <div class="form-inline">
-        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-          <% cb.label {cb.check_box + cb.text} %>
-        <% end %>
-      </div>
-      
-
-      <%= f.submit "Create Category", class: "btn btn-primary" %>
-    <% end %>
+    <%= render 'form' %>
   </div>
 </div>

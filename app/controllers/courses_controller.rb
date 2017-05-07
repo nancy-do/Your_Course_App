@@ -7,9 +7,6 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
-    @locations = Location.all
-    @categories = Category.all
-    @courses = Course.all
   end
   
   def create
@@ -20,6 +17,20 @@ class CoursesController < ApplicationController
       redirect_to courses_path
     else
       render 'new'
+    end
+  end
+  
+  def edit
+    @course = Course.find(params[:id])
+  end
+  
+  def update
+    @course = Course.find(params[:id])
+    if @course.update_attributes(course_params)
+      flash[:success] = "Course updated"
+      redirect_to courses_path
+    else
+      render 'edit'
     end
   end
   

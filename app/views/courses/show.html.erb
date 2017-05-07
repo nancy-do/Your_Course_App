@@ -2,7 +2,10 @@
     <h1>Courses</h1>
     <div class="list-group">
         <% @courses.each do |course| %>
-            <%= link_to course.name, "#", class:"list-group-item" %>
+            <div class="jumbotron ">
+                <%= link_to course.name, "#", class:"text-info"%>
+                <%= link_to 'edit', edit_course_path(course), class: "btn btn-success navbar-right"%>
+            </div>
         <% end %>
     </div>
 </div>

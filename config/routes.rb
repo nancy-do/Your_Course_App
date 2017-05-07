@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   post  '/create_category', to: 'categories#create'
   
   get '/courses', to: 'courses#show'
-  get 'courses/update'
+  get 'users/update'
+  get 'users/edit'
   get '/create_course', to: 'courses#new'
   post '/create_course', to: 'courses#create'
   
