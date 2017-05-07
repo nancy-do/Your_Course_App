@@ -21,9 +21,12 @@ Category.create!(name:"Java")
 Category.create!(name:"Full Stack Dev")
 Category.create!(name:"Application Development")
 
-Course.create!(name:"Programming 1", prerequisite: "Professional Computing Practise", description:"Example Description" )
-Course.create!(name:"Professional Computing Practise", prerequisite: "Programming 1", description:"Example Description" )
-Course.create!(name:"Rapid Application Development", prerequisite: "Programming 1", description:"Example Description" )
+Course.create!(name:"Programming 1", prerequisite: "Professional Computing Practise", 
+                description:"Example Description",user_id:1)
+Course.create!(name:"Professional Computing Practise", prerequisite: "Programming 1", 
+                description:"Example Description",user_id:1)
+Course.create!(name:"Rapid Application Development", prerequisite: "Programming 1", 
+                description:"Example Description",user_id:2)
 
 Course.first.locations << Location.find(1)
 Course.second.locations << Location.find(2)

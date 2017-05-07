@@ -4,7 +4,9 @@
         <% @courses.each do |course| %>
             <div class="jumbotron ">
                 <%= link_to course.name, "#", class:"text-info"%>
-                <%= link_to 'edit', edit_course_path(course), class: "btn btn-success navbar-right"%>
+                <% if course.user_id == @user%>
+                    <%= link_to 'edit', edit_course_path(course), class: "btn btn-success navbar-right"%>
+                <% end %>
             </div>
         <% end %>
     </div>

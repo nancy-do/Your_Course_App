@@ -3,6 +3,7 @@ class CoursesController < ApplicationController
   
   def show
     @courses = Course.all
+    @user = session[:user_id]
   end
 
   def new
@@ -38,6 +39,8 @@ class CoursesController < ApplicationController
   private
 
     def course_params
-      params.require(:course).permit(:name, :prerequisite, :description,:location_ids => [], :category_ids => [])
+      params.require(:course).permit(:name, :prerequisite, :description,
+                                      :location_ids => [],
+                                      :category_ids => []).merge(user_id: session[:user_id])
     end
 end
