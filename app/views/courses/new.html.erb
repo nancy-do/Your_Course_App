@@ -20,17 +20,15 @@
   
       <%= f.label :locations %>
       <div class="form-inline">
-        <% @locations.each do |location| %>
-          <%= f.check_box( :locations, {class: 'form-control'}, location.id)%>
-          <%= location.locationName %>
+        <%= f.collection_check_boxes :location_ids, Location.all, :id, :locationName do |cb| %>
+          <% cb.label {cb.check_box + cb.text} %>
         <% end %>
       </div>
       
       <%= f.label :categories %>
       <div class="form-inline">
-        <% @categories.each do |category| -%>
-          <%= f.check_box( :categories, {class: 'form-control'}, category.id)%>
-          <%= category.name %>
+        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+          <% cb.label {cb.check_box + cb.text} %>
         <% end %>
       </div>
       
