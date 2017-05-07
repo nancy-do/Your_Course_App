@@ -6,14 +6,34 @@
     <%= form_for(@course, url: create_course_path) do |f| %>
     
       <%= render 'shared/course_error_messages' %>
+      
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
       
       <%= f.label :prerequisite %>
-      <%= f.text_field :prerequisite, class: 'form-control' %>
+      <%= f.select :prerequisite, options_for_select(@courses.map{ |c| [c.name, c.id] }) %>
       
       <%= f.label :description %>
       <%= f.text_area :description, class: 'form-control', :cols => 10, :rows => 10 %>
+      
+
+  
+      <%= f.label :locations %>
+      <div class="form-inline">
+        <% @locations.each do |location| %>
+          <%= f.check_box( :locations, {class: 'form-control'}, location.id)%>
+          <%= location.locationName %>
+        <% end %>
+      </div>
+      
+      <%= f.label :categories %>
+      <div class="form-inline">
+        <% @categories.each do |category| -%>
+          <%= f.check_box( :categories, {class: 'form-control'}, category.id)%>
+          <%= category.name %>
+        <% end %>
+      </div>
+      
 
       <%= f.submit "Create Category", class: "btn btn-primary" %>
     <% end %>

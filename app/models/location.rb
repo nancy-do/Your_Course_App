@@ -4,8 +4,13 @@ class Location < ApplicationRecord
     validates :level, presence: true, :numericality => { :greater_than_or_equal_to => 1, :less_than_or_equal_to => 30 , only_interger: true}
     validates :room, presence: true, :numericality => { :greater_than_or_equal_to => 1, :less_than_or_equal_to => 100, only_interger: true}
     
+    # has_many :courses
+    has_and_belongs_to_many :courses
+    
     def locationName
-        "#{building}.#{level}.#{room}"
+        # string2 = :building + "." + :level + "." + :room
+        string = "#{building}.#{level}.#{room}"
+        return string
     end
 
 

@@ -2,12 +2,10 @@
 
 one:
   name: MyString
-  prerequisite: MyString
+  prerequisite: 1
   description: MyString
-  category: MyString
 
 two:
   name: MyString
-  prerequisite: MyString
+  prerequisite: 1
   description: MyString
-  category: MyString
