@@ -1,13 +1,31 @@
 <div class= "container">
     <h1>Courses</h1>
-    <div class="list-group">
-        <% @courses.each do |course| %>
-            <div class="jumbotron ">
-                <%= link_to course.name, "#", class:"text-info"%>
-                <% if course.user_id == @user%>
-                    <%= link_to 'edit', edit_course_path(course), class: "btn btn-success navbar-right"%>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#courses">Courses</a></li>
+      <li><a data-toggle="tab" href="#coordinators">Coordinator</a></li>
+    </ul>
+    
+    <div class="tab-content">
+      <div id="courses" class="tab-pane fade in active">
+        <!--<h3>HOME</h3>-->
+        <p>
+            <div class="list-group">
+                <% @courses.each do |course| %>
+                    <div class="jumbotron ">
+                        <%= link_to course.name, "#", class:"text-info"%>
+                        <% if course.user_id == @user%>
+                            <%= link_to 'edit', edit_course_path(course), class: "btn btn-success navbar-right"%>
+                        <% end %>
+                    </div>
                 <% end %>
             </div>
-        <% end %>
+        </p>
+      </div>
+      <div id="coordinators" class="tab-pane fade">
+        <h3>Coordinators</h3>
+        <p>Some content in coordinators.</p>
+      </div>
     </div>
+    
+    
 </div>
