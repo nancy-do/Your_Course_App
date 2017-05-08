@@ -2,7 +2,11 @@
 <div class="list-group">
     <% Course.all.each do |course| %>
         <div class="jumbotron ">
-            <%= link_to course.name, "#", class:"text-info"%>
+            <h3><%= link_to course.name, "#", class:"text-info"%></h3>
+            <h6>Preresquisite : <%= course.prerequisite%></h6>
+            <h6>Location : "FILL THE LOCATION"</h6>
+            <h6>Created at : "FILL THE Date"</h6>
+            
             <% if course.user_id == current_user.id %>
             <%= link_to 'edit', edit_course_path(course), class: "btn btn-success navbar-right"%>
             <% end %>
