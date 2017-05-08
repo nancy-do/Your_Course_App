@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 /* mixins, variables, etc. */
 
@@ -194,4 +195,16 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+.social_media_hover span{
+  display:none;
+}
+.social_media_hover:hover span{
+  display:inline-block;
+}
+
+.social_media_hover:hover a{
+  text-decoration: none;
+  font-weight:bold;
 }
