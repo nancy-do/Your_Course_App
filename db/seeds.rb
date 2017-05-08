@@ -27,12 +27,3 @@ Course.create!(name:"Professional Computing Practise", prerequisite: "Programmin
                 description:"Example Description",user_id:1, location_ids: [2], category_ids: [2])
 Course.create!(name:"Rapid Application Development", prerequisite: "Programming 1", 
                 description:"Example Description",user_id:2, location_ids: [3], category_ids: [1])
-
-Course.first.locations << Location.find(1)
-Course.second.locations << Location.find(2)
-Course.third.locations << Location.find(3)
-
-Course.first.categories << Category.find(2)
-Course.second.categories << Category.find(2)
-Course.third.categories << Category.find(1)
-
