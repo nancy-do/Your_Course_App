@@ -8,9 +8,7 @@ class Location < ApplicationRecord
     has_and_belongs_to_many :courses
     
     def locationName
-        # string2 = :building + "." + :level + "." + :room
-        string = "#{building}.#{level}.#{room}"
-        return string
+        "#{building}.#{level}.#{room}"
     end
 
 
