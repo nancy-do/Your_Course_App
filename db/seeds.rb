@@ -21,6 +21,10 @@ Category.create!(name:"Java")
 Category.create!(name:"Full Stack Dev")
 Category.create!(name:"Application Development")
 
+def seed_image
+  File.open(File.join(Rails.root, "/app/assets/images/html-programming.jpg"))
+end
+
 Course.create!(name:"Programming 1", prerequisite: "Professional Computing Practise", 
                 description:"Example Description",user_id:1, location_ids: [1], category_ids: [2])
 Course.create!(name:"Professional Computing Practise", prerequisite: "Programming 1", 

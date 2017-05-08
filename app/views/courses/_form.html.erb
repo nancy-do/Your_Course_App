@@ -30,7 +30,7 @@
       <%= f.label :image %><br>
       <%= f.file_field :image %>
       <% if f.object.image? %>
-        <%= image_tag f.object.image.url %>
+        <%= image_tag f.object.image.url, size:"50x50" %>
         <%= f.label :remove_image %>
         <%= f.check_box :remove_image %>
       <% end %>
