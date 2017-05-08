@@ -1,0 +1,17 @@
+<%= form_for(@user, url: @method) do |f| %>
+    <%= render 'shared/signup_error_messages' %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+
+    <%= f.label :password_confirmation, "Re-type Password" %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+    <%= f.submit @submit, class: "btn btn-primary" %>
+<% end %>
