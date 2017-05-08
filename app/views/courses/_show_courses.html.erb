@@ -1,0 +1,11 @@
+<h1>Courses</h1>
+<div class="list-group">
+    <% Course.all.each do |course| %>
+        <div class="jumbotron ">
+            <%= link_to course.name, "#", class:"text-info"%>
+            <% if course.user_id == @user%>
+            <%= link_to 'edit', edit_course_path(course), class: "btn btn-success navbar-right"%>
+            <% end %>
+        </div>
+    <% end %>
+</div>
