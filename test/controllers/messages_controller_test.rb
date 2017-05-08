@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MessagesControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get messages_new_url
+    get create_message_path
     assert_response :success
   end
 
