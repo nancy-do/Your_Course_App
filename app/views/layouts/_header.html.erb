@@ -47,7 +47,12 @@
         </li>
         
         <% if logged_in? %>
-          <li><%= link_to "Create course", create_course_path %></li>
+          <li>
+            <%= link_to create_course_path do %>
+            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+            Create course
+            <%end%>
+          </li>
           <li><%= link_to "Log out", logout_path , method: :delete %></li>
         <% else %>
           <li>
