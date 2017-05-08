@@ -1,0 +1,14 @@
+<%= form_for(@message = Message.new, url: create_message_path) do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+    
+    <%= f.label :message %>
+    <%= f.text_area :message, class: 'form-control', :cols => 10, :rows => 10 %>
+    
+    <%= f.submit  "Send Message", class: "btn btn-primary" %>
+
+<%end%>
