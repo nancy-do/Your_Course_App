@@ -1,6 +1,5 @@
 <div class= "container">
-    <div class="row">
-    </div>
+    <br><br>
         <div class="row courses">
         <div class="col-md-3 col-md-offset-1">
             <%= image_tag @course.image.url, class:"img-circle", size:"200x200" %>
@@ -9,7 +8,10 @@
              <% if logged_in? %>
                 <% if @course.user_id == current_user.id %>
                 <div class="navbar-right">
-                <%= link_to 'edit', edit_course_path(@course), class: "btn btn-success"%>
+                <%= link_to edit_course_path(@course), class: "btn btn-success" do %>
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit this Course
+                <%end%>
                 </div>
                 <% end %>
             <% end %>
@@ -52,4 +54,15 @@
             </div>
         </div>
     </div>
+        <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+            <br>
+        <%= link_to courses_path, class: "btn btn-info" do %>
+        <span class="glyphicon glyphicon-menu-left"></span>
+        Return to Course List
+        <%end%>
+        <br> 
+        </div>
+    </div>
+    
 </div>   
