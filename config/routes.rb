@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'ratings/create'
+
   root 'static_pages#home'
   get  '/messages',  to: 'static_pages#messages'
   
@@ -15,8 +17,7 @@ Rails.application.routes.draw do
   post  '/create_category', to: 'categories#create'
   
   get '/courses', to: 'courses#show'
-  get 'users/update'
-  get 'users/edit'
+  get 'courses/edit'
   get '/create_course', to: 'courses#new'
   post '/create_course', to: 'courses#create'
   
@@ -31,6 +32,13 @@ Rails.application.routes.draw do
   resources :locations
   resources :courses
   resources :categories
+  
+  resources :ratings do 
+    member do 
+      get :like
+      get :dislike
+    end 
+  end
   
 
 end

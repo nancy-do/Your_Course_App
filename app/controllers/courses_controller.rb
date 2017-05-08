@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
   def show
     @courses = Course.all
     @user = session[:user_id]
+    #@rating = Rating.all
   end
 
   def new
@@ -12,8 +13,10 @@ class CoursesController < ApplicationController
   
   def create
     @course = Course.new(course_params)
-
     if @course.save
+      #Once a course is created a rating tabls is created as well 
+      @rating = Rating.new(likes:0, dislikes:0, courses_id: @course.id)
+      @rating.save
       flash[:success] = "Course successfully created"
       redirect_to courses_path
     else

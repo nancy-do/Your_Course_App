@@ -7,6 +7,19 @@
                 <% if course.user_id == @user%>
                     <%= link_to 'edit', edit_course_path(course), class: "btn btn-success navbar-right"%>
                 <% end %>
+                <br><br><br> 
+                <div class= "navbar-right">
+                    
+                    <%= link_to like_rating_url(Rating.find_by(id: course.id).id), class:"btn btn-default" do%>
+                        <%= Rating.find_by(id: course.id).likes%>
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                    <%end%>
+                    
+                    <%= link_to dislike_rating_url(Rating.find_by(id: course.id).id), class:"btn btn-default" do%>
+                        <%= Rating.find_by(id: course.id).dislikes%>
+                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                    <%end%>
+                </div>
             </div>
         <% end %>
     </div>
