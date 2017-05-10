@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   
   get '/courses', to: 'courses#index'
   get 'courses/edit'
-  get '/course', to: 'courses#show'
   get '/create_course', to: 'courses#new'
   post '/create_course', to: 'courses#create'
   
