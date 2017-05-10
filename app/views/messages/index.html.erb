@@ -1,0 +1,13 @@
+<div class= "container">
+    <h1>Messages</h1>
+    <div class="list-group">
+        <% @messages.each do |m| %>
+        <div class="list-group-item">
+            <h4>Name: <%=m.name%></h4>
+            <p>Email: <%=m.email%></p>
+            <p>Message: <%=m.message%></p>
+        </div>
+        <%end%>
+    </div>
+</div>
+

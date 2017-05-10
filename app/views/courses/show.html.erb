@@ -1,3 +1,68 @@
 <div class= "container">
-    <%= render 'courses/show_courses'%>
-</div>
+    <br><br>
+        <div class="row courses">
+        <div class="col-md-3 col-md-offset-1">
+            <%= image_tag @course.image.url, class:"img-circle", size:"200x200" %>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+             <% if logged_in? %>
+                <% if @course.user_id == current_user.id %>
+                <div class="navbar-right">
+                <%= link_to edit_course_path(@course), class: "btn btn-success" do %>
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit this Course
+                <%end%>
+                </div>
+                <% end %>
+            <% end %>
+            <h3><%= link_to @course.name, course_path(:id => @course.id), class:"text-info"%></h3>
+            <h5>Preresquisite : <%= @course.prerequisite%></h5>
+            <div class="cat_loc_display">
+                <h5>Category: </h5>
+                <% @course.category_ids.each do |category_id|%>
+                <%= link_to Category.find(category_id).name, category_path(:id => category_id)%>
+                <%end%>
+            </div>
+            <h5>Location: </h5>
+            <% @course.location_ids.each do |location_id|%>
+            <%= link_to Location.find(location_id).locationName, location_path(:id => location_id)%>
+            <%end%>
+            <h6>Created at : <%= @course.created_at.strftime("%d %b. %Y")%></h6>
+            
+            <div class= "navbar-right">
+                    <% if logged_in? %>
+                    <%= link_to like_rating_url(Rating.find_by(id: @course.id).id), class:"btn btn-default" do%>
+                        <%= Rating.find_by(id: @course.id).likes%>
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                    <%end%>
+                    
+                    <%= link_to dislike_rating_url(Rating.find_by(id: @course.id).id), class:"btn btn-default" do%>
+                        <%= Rating.find_by(id: @course.id).dislikes%>
+                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                    <%end%>
+                    <%else%>
+                    <button class="btn btn-default" disabled>
+                        <%= Rating.find_by(id: @course.id).likes%>
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                    </button>
+                    
+                    <button class="btn btn-default" disabled>
+                        <%= Rating.find_by(id: @course.id).dislikes%>
+                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                    </button>
+                    <%end%>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+            <br>
+        <%= link_to courses_path, class: "btn btn-info" do %>
+        <span class="glyphicon glyphicon-menu-left"></span>
+        Return to Course List
+        <%end%>
+        <br> 
+        </div>
+    </div>
+    
+</div>   

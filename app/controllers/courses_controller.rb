@@ -1,9 +1,10 @@
 class CoursesController < ApplicationController
   
+  def index
+  end 
   
   def show
-    @courses = Course.all
-    @user = session[:user_id]
+    @course = Course.find(params[:id])
   end
 
   def new
