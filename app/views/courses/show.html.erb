@@ -27,6 +27,10 @@
             <% @course.location_ids.each do |location_id|%>
             <%= link_to Location.find(location_id).locationName, location_path(:id => location_id)%>
             <%end%>
+            <h5>Coordinator: </h5>
+            <%= link_to User.find(@course.user_id).name, user_path(User.find(@course.user_id)) %>
+            <h5>Description: </h5>
+            <h6><%= @course.description %></h6>
             <h6>Created at : <%= @course.created_at.strftime("%d %b. %Y")%></h6>
             
             <div class= "navbar-right">
