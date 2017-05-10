@@ -10,6 +10,11 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @courses = @category.courses
+    @users = Array.new
+    @courses.each do |course|
+      @users << User.find(course.user_id)
+    end
+    @users = @users.uniq
   end
 
   def create

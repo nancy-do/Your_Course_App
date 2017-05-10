@@ -1,0 +1,16 @@
+<div class="col-md-6 col-md-offset-3">
+        <% @users.each do |user| %>
+            <div class="col-md-6 col-md-offset-3">
+                 <p>
+                     <section class="user_info">
+                        <%= gravatar_for(user,options = { size: 150 }) %>
+                            <p>
+                                 <h6> Coordinator name : <%= link_to user.name, user, class:"text-info" %> </h6>
+                                        
+                            </p>
+                    </section>
+            </div>
+        <% end %>
+</div>
+    
+
