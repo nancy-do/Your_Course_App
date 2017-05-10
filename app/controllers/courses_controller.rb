@@ -11,10 +11,12 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @submit = "Create a new course"
   end
   
   def create
     @course = Course.new(course_params)
+    @submit = "Create a new course"
     if @course.save
       #Once a course is created a rating tabls is created as well 
       @rating = Rating.new(likes:0, dislikes:0, courses_id: @course.id)
@@ -28,6 +30,7 @@ class CoursesController < ApplicationController
   
   def edit
     @course = Course.find(params[:id])
+    @submit = "Update course"
   end
   
   def update
