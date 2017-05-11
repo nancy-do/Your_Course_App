@@ -14,21 +14,21 @@ class CourseTest < ActiveSupport::TestCase
   end 
   
   test "should be valid" do
-    assert @course.valid?
+    assert @category.valid?
   end
   
-  # test "name should be present" do
-  #   @course.name = "     "
-  #   assert_not @course.valid?
-  # end
+  test "name should be present" do
+    @course.name = "     "
+    assert_not @course.valid?
+  end
   
-  # test "Prerequisite  should be present" do
-  #   @course.prerequisite = "     "
-  #   assert_not @course.prerequisite?
-  # end
+  test "Prerequisite  should be present" do
+    @course.prerequisite = "     "
+    assert_not @course.prerequisite?
+  end
   
-  # test "description  should be present" do
-  #   @course.description = "     "
-  #   assert_not @course.description?
-  # end
+  test "description  should be present" do
+    @course.description = "     "
+    assert_not @course.description?
+  end
 end
