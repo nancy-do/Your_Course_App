@@ -7,14 +7,14 @@ class CourseTest < ActiveSupport::TestCase
   
   def setup
     @category = Category.new(name: "Web Servers and Web Technology")
-    @location = Location.new(building: 10, level: 10, room:30)
-    @user = User.new(name: "Example User", email: "example.user@rmit.edu.au", password:"foOBar123!@#", password_confirmation:"foOBar123!@#")
+    # @location = Location.new(building: 10, level: 10, room:30)
+    # @user = User.new(name: "Example User", email: "example.user@rmit.edu.au", password:"foOBar123!@#", password_confirmation:"foOBar123!@#")
     @course = Course.new(name:"Example Examplee", prerequisite: "Example exampskhj", description:"Example Description",
-                          user_id: 1, location_ids: [@location.id], category_ids: [@category.id])
+                          user_id: users(:michael).id, location_ids: [locations(:one).id], category_ids: [categories(:one).id])
   end 
   
   test "should be valid" do
-    assert @course.valid?
+    assert @category.valid?
   end
   
   # test "name should be present" do
