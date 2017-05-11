@@ -7,9 +7,23 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       flash[:success] = "Message successfully sent"
-      redirect_to messages_index_url
+      if logged_in?
+        redirect_to messages_index_url
+      else
+        redirect_to root_path
+      end
     else
-      #render 'new'
+      message = "" 
+      @message.errors.full_messages.each do |msg|
+        message += msg+", "
+      end
+      flash[:danger] = message
+      
+      if logged_in?
+        redirect_to messages_index_url
+      else
+        redirect_to root_path
+      end
     end
   end 
 

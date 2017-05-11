@@ -1,5 +1,7 @@
 <%= form_for(@message = Message.new, url: create_message_path) do |f| %>
 
+    <%= render 'shared/message_error_messages' %>
+
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
 
