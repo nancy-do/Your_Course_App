@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
   
   def index
     @courses = Course.all
@@ -50,5 +52,24 @@ class CoursesController < ApplicationController
       params.require(:course).permit(:name, :prerequisite, :description, :remove_image, :image,
                                       :location_ids => [],
                                       :category_ids => []).merge(user_id: session[:user_id])
+    end
+    
+    # Confirms a logged-in user.
+    def logged_in_user
+        unless logged_in?
+          store_location
+          flash[:danger] = "Please log in."
+          redirect_to login_url
+        end
+    end
+
+    # Confirms the correct user.
+    def correct_user
+        @course = Course.find(params[:id])
+        @user = @course.users
+        unless current_user == @user
+          redirect_to(root_url) 
+          flash[:danger] = "You are not the authorised user"
+        end
     end
 end
