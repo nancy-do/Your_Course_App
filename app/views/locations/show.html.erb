@@ -1,8 +1,5 @@
 <div class= "container">
-    <h1>Locations</h1>
-    <div class="list-group">
-        <% @locations.each do |location| %>
-            <%= link_to location.locationName, "#", class:"list-group-item" %>
-        <% end %>
-    </div>
+    <h1>Courses scheduled in location <%=@location.locationName%></h1>
+    
+    <%= render 'shared/category_locations_tab'%>
 </div>

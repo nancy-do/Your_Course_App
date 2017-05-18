@@ -1,0 +1,6 @@
+<h1>Courses</h1>
+<div class="list-group">
+    <% Course.all.each do |course| %>
+    <%= render 'shared/course_display', {course: course}%>
+    <% end %>
+</div>

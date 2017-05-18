@@ -1,8 +1,4 @@
 <div class= "container">
-    <h1>Categories</h1>
-    <div class="list-group">
-        <% @categories.each do |category| %>
-            <%= link_to category.name, "#", class:"list-group-item" %>
-        <% end %>
-    </div>
+    <h1>Courses in <%=@category.name%></h1>
+    <%= render 'shared/category_locations_tab'%>
 </div>

@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 /* mixins, variables, etc. */
 
@@ -195,3 +196,28 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+.social_media_hover span{
+  display:none;
+}
+.social_media_hover:hover span{
+  display:inline-block;
+}
+
+.social_media_hover:hover a{
+  text-decoration: none;
+  font-weight:bold;
+}
+
+.courses {
+  background-color:  lighten(#000, 93.5%);
+  margin-left:10%;
+  margin-right:10%;
+  margin-bottom:10px;
+  padding-top:25px;
+  padding:15px;
+}
+
+.cat_loc_display h3, .cat_loc_display a{
+  display: inline;
+} 

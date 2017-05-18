@@ -1,0 +1,21 @@
+<% provide(:title, 'Your profile') %>
+<h1>Coordinator: <%= @user.name%></h1>
+
+<div class="container text-center">
+    <div class="col-md-6 col-md-offset-3">
+        <p>
+            <section class="user_info">
+                <%= gravatar_for(@user,options = { size: 150 }) %>
+            </section>
+        </p>
+        
+        <div class="list-group">
+            <%= render 'users/show_courses' %>
+        </div>
+    </div>
+    
+</div>
+
+<!--<div class= "container">-->
+    
+<!--</div>-->

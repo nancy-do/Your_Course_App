@@ -1,0 +1,18 @@
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#courses">Courses</a></li>
+         <li><a data-toggle="tab" href="#coordinators">Coordinator</a></li>
+</ul>
+        
+<div class="tab-content">
+    <div id="courses" class="tab-pane fade in active">
+        <p class="container text-center">
+            <div class="container text-left">
+                <%= render 'courses/show_courses'%>
+            </div>
+        </p>
+    </div>
+        <div id="coordinators" class="tab-pane fade">
+            <h3>Coordinators</h3>
+            <p><%= render 'users/index_users' %></p>
+        </div>
+    </div>

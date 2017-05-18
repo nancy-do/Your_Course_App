@@ -1,0 +1,39 @@
+ <%= form_for(@course) do |f| %>
+    
+      <%= render 'shared/course_error_messages' %>
+      
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.label :prerequisite %>
+      <%= f.select :prerequisite, options_for_select(Course.all.map{ |c| [c.name, c.name] }) %>
+      
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control', :cols => 10, :rows => 10 %>
+      
+
+  
+      <%= f.label :locations %>
+      <div class="form-inline">
+        <%= f.collection_check_boxes :location_ids, Location.all, :id, :locationName do |cb| %>
+          <% cb.label{cb.check_box + cb.text}%>
+        <% end %>
+      </div>
+      
+      <%= f.label :categories %>
+      <div class="form-inline">
+        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+          <% cb.label {cb.check_box + cb.text} %>
+        <% end %>
+      </div>
+      
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+      <% if f.object.image? %>
+        <%= image_tag f.object.image.url, size:"50x50" %>
+        <%= f.label :remove_image %>
+        <%= f.check_box :remove_image %>
+      <% end %>
+
+      <%= f.submit @submit, class: "btn btn-primary" %>
+    <% end %>

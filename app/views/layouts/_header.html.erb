@@ -4,13 +4,22 @@
     
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        
         <li class="dropdown">
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Category<b class="caret"></b></a>
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+             <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
+             Category
+             <b class="caret"></b>
+            </a>
            <ul class="dropdown-menu">
+              <% Category.all.each do |category| %>
+                <li><%= link_to category.name, category_path(:id => category.id) %></li>
+              <% end %>
+              <li class="divider"></li>
               <li><%= link_to "View all", categories_path %></li>
+              <% if logged_in? %>
                 <li class="divider"></li>
                 <li><%= link_to "Create category", create_category_path %></li>
+              <% end %>
            </ul>
           
         </li>
@@ -18,22 +27,54 @@
         
         
         <li class="dropdown">
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Locations<b class="caret"></b></a>
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+             <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+             Locations
+             <b class="caret"></b>
+            </a>
            <ul class="dropdown-menu">
+              <% Location.all.each do |location| %>
+                  <li><%= link_to location.locationName, location_path(:id => location.id)%></li>
+              <% end %>
+              <li class="divider"></li>
               <li><%= link_to "View all", locations_path %></li>
+              <% if logged_in? %>
                 <li class="divider"></li>
                 <li><%= link_to "Create Location", create_location_path %></li>
+              <% end %>
            </ul>
         </li>
         
-        <li><%= link_to "Create course", create_course_path %></li>
+        <% if logged_in? %>
+          <li>
+            <%= link_to create_course_path do %>
+            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+            Create course
+            <%end%>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= current_user.name %><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "View profile", current_user %></li>
+              <li><%= link_to "Edit profile", edit_user_path(current_user) %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to login_path do%>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            Log in
+            <%end%>
+            </li>
+        <% end %>
     
       </ul>
-      
-      
     </nav>
-    
   </div>
-  
-  
 </header>

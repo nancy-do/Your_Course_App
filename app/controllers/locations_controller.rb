@@ -1,8 +1,18 @@
 class LocationsController < ApplicationController
   def show
     #show courses scheduled in that location
-    @locations = Location.all
+    @location = Location.find(params[:id])
+    @courses = @location.courses
+    @users = Array.new
+    @courses.each do |course|
+      @users << User.find(course.user_id)
+    end
+    @users = @users.uniq
   end
+  
+  def index
+    @locations = Location.all
+  end 
   
   def new
     @location = Location.new
