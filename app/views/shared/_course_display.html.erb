@@ -19,7 +19,7 @@
                     <%=Location.find(location_id).locationName%>
                 <%end%>
             <%end%>
-            <h6>Created at : <%= course.created_at.strftime("%d %b. %Y")%></h6>
+            <h6>Created: <%= time_ago_in_words(course.created_at)%> ago</h6>
             
             <div class= "navbar-right">
                     <% if logged_in? %>
