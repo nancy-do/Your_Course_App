@@ -20,12 +20,16 @@
             <div class="cat_loc_display">
                 <h5>Category: </h5>
                 <% @course.category_ids.each do |category_id|%>
-                <%= link_to Category.find(category_id).name, category_path(:id => category_id)%>
+                <%= link_to category_path(:id => category_id), class:"course_list" do %>
+                <%=Category.find(category_id).name%>
+                <%end%>
                 <%end%>
             </div>
             <h5>Location: </h5>
             <% @course.location_ids.each do |location_id|%>
-            <%= link_to Location.find(location_id).locationName, location_path(:id => location_id)%>
+            <%= link_to location_path(:id => location_id), class:"course_list" do %>
+                    <%=Location.find(location_id).locationName%>
+            <%end%>
             <%end%>
             <h5>Coordinator: </h5>
             <%= link_to User.find(@course.user_id).name, user_path(User.find(@course.user_id)) %>

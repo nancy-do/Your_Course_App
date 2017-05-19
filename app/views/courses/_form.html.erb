@@ -16,14 +16,18 @@
       <%= f.label :locations %>
       <div class="form-inline">
         <%= f.collection_check_boxes :location_ids, Location.all, :id, :locationName do |cb| %>
-          <% cb.label{cb.check_box + cb.text}%>
+          <%= cb.label class:"label_checkbox" do%>
+          <% cb.check_box(class:"check_box_input") + cb.text%>
+          <%end%>
         <% end %>
       </div>
       
       <%= f.label :categories %>
       <div class="form-inline">
         <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-          <% cb.label {cb.check_box + cb.text} %>
+          <%= cb.label class:"label_checkbox" do%>
+          <% cb.check_box(class:"check_box_input") + cb.text%>
+          <%end%>
         <% end %>
       </div>
       
