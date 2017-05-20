@@ -15,6 +15,12 @@ User.create!(name: "Exampl",
             email: "example.example@rmit.edu.au",
             password: "fooBar123$$$",
             password_confirmation: "fooBar123$$$")
+            
+User.create!(name: "admin",
+            email: "admin",
+            password: "password",
+            password_confirmation: "password", 
+            admin: true)
 
 User.create!(name: "Jane",
             email: "jane.doe@rmit.edu.au",
