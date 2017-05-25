@@ -10,7 +10,9 @@ class CoursesController < ApplicationController
   end
   
   def destroy
-    Course.find(params[:id]).destroy
+    @course_id = params[:id]
+    Course.find(@course_id).destroy
+    
     flash[:success] = "Course deleted"
     redirect_to courses_path
   end
@@ -25,7 +27,7 @@ class CoursesController < ApplicationController
     @submit = "Create a new course"
     if @course.save
       #Once a course is created a rating tabls is created as well 
-      @rating = Rating.new(likes:0, dislikes:0, courses_id: @course.id)
+      @rating = Rating.new(likes:0, dislikes:0, course_id: @course.id)
       @rating.save
       flash[:success] = "Course successfully created"
       redirect_to courses_path

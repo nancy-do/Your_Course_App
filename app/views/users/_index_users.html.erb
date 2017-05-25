@@ -1,6 +1,14 @@
 <div class="col-md-6 col-md-offset-3">
-        <% @users.each do |user| %>
+        <% User.where.not(admin: true).each do |user| %>
             <div class="col-md-6 col-md-offset-3">
+                <% if User.find(current_user.id).admin == true %>
+                <div class="navbar-right">
+                    <%= link_to user, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" do %>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    Delete this User
+                    <%end%>
+                </div>
+                <% end %>
                  <p>
                      <section class="user_info">
                         <%= gravatar_for(user,options = { size: 150 }) %>

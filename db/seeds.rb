@@ -43,9 +43,9 @@ Course.create!(name:"Professional Computing Practise", prerequisite: "Programmin
 Course.create!(name:"Rapid Application Development", prerequisite: "Programming 1", 
                 description:"Example Description", user_id:2, location_ids: [3], category_ids: [1])
       
-Rating.create(likes:0, dislikes:0, courses_id:1) 
-Rating.create(likes:0, dislikes:0, courses_id:2) 
-Rating.create(likes:0, dislikes:0, courses_id:3) 
+Rating.create(likes:0, dislikes:0, course_id:1) 
+Rating.create(likes:0, dislikes:0, course_id:2) 
+Rating.create(likes:0, dislikes:0, course_id:3) 
 
                 
 

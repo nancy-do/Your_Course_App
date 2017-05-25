@@ -1,10 +1,10 @@
 class Rate < ApplicationRecord
     
-    validates :users_id, presence: true
-    validates :ratings_id, presence: true
+    validates :user_id, presence: true
+    validates :rating_id, presence: true
     validates :rated, presence: true
     
-    validates_uniqueness_of :users_id, :scope => :ratings_id
+    validates_uniqueness_of :user_id, :scope => :rating_id
      
      
     belongs_to :users
