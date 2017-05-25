@@ -1,4 +1,4 @@
-<% Course.all.each do |course| %>
+<% @course.each do |course| %>
     <div class="jumbotron ">
         <%= image_tag course.image.url, class:"img-circle", size:"100x100" %>
         <h3><%= link_to course.name, "#", class:"text-info"%></h3>
