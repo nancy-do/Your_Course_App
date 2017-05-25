@@ -14,6 +14,14 @@
                 <%end%>
                 </div>
                 <% end %>
+                <% if User.find(current_user.id).admin == true %>
+                <div class="navbar-right">
+                    <%= link_to @course, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" do %>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    Delete this Course
+                    <%end%>
+                </div>
+                <% end %>
             <% end %>
             <h3><%= link_to @course.name, course_path(:id => @course.id), class:"text-info"%></h3>
             <h5>Preresquisite : <%= @course.prerequisite%></h5>

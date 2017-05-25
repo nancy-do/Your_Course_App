@@ -8,6 +8,12 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
   end
+  
+  def destroy
+    Course.find(params[:id]).destroy
+    flash[:success] = "Course deleted"
+    redirect_to courses_path
+  end
 
   def new
     @course = Course.new
