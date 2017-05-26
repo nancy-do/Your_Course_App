@@ -1,23 +1,17 @@
 class RatingsController < ApplicationController
     before_action :logged_in_user, only: [:like, :dislike]
     
-    def create
-    end
-    
     def reset
         #Resetting ratings 
         @rating = Rating.find_by(id: params[:id])
-        @rating.likes = 0
-        @rating.dislikes = 0
-        @rating.save
-        
-        rated_data = Rate.where(rating_id: params[:id])
-        rated_data.each do |rate|
-            Rate.find(rate.id).destroy
+        if (@rating.likes == 0 and @rating.dislikes == 0)
+            flash[:danger] = "Ratings already reset"
+            redirect_to courses_path
+        else
+            reset_ratings
+            flash[:success] = "Ratings reset"
+            redirect_to root_path
         end 
-        
-        flash[:success] = "Ratings reset"
-        redirect_to root_path
     end
     
     def like
@@ -59,4 +53,15 @@ class RatingsController < ApplicationController
               redirect_to login_url
             end
         end
+        
+        def reset_ratings
+            @rating.likes = 0
+            @rating.dislikes = 0
+            @rating.save
+            
+            rated_data = Rate.where(rating_id: params[:id])
+            rated_data.each do |rate|
+                Rate.find(rate.id).destroy
+            end 
+        end 
 end
