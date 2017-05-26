@@ -4,21 +4,9 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user_id = params[:id]
-    User.find(@user_id).destroy
-    
-    #Decrementing counter for courses not made by them
-    @rates_made_by_user = Rate.where(user_id: @user_id)
-    @rates_made_by_user.each do |rate|
-      @rating_id = rate.rating_id
-      if rate.pressed == 1
-        Rating.decrement_counter(:likes, @rating_id)
-      elsif rate.pressed == 0
-        Rating.decrement_counter(:dislikes, @rating_id)
-      end 
-    end 
-    
-    flash[:success] = "User deleted"
+    User.find(params[:id]).destroy
+    decrement_ratings                             #Decrementing counter for course ratings
+    flash[:success] = "User Deleted"
     redirect_to root_path
   end
   
@@ -69,5 +57,18 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
+    
+    def decrement_ratings
+      rates_made_by_user = Rate.where(user_id: params[:id])
+      rates_made_by_user.each do |rate|
+      @rating_id = rate.rating_id
+      if rate.pressed == 1
+        Rating.decrement_counter(:likes, @rating_id)
+      elsif rate.pressed == 0
+        Rating.decrement_counter(:dislikes, @rating_id)
+      end 
+      Rate.find(rate.id).destroy
+    end 
+    end 
     
 end

@@ -45,7 +45,7 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
   end
   has_many :courses, :dependent => :delete_all
-  has_many :rates, :dependent => :delete_all
+  has_many :rates
   has_many :ratings, through: :rates
   
 end
