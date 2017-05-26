@@ -9,7 +9,7 @@ class LocationTest < ActiveSupport::TestCase
     assert @location.valid?
   end
   
-   test "building number should be present" do
+  test "building number should be present" do
     @location.building = "     "
     assert_not @location.building?
   end

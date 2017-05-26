@@ -1,9 +1,9 @@
 class Course < ApplicationRecord
     mount_uploader :image, ImageUploader
     
-    validates :name, presence: true, uniqueness: true
+    validates :name, presence: true, uniqueness: true, length: {minimum: 4}
     validates :prerequisite, presence: true
-    validates :description, presence: true
+    validates :description, presence: true, length: { maximum: 500 }
     validates :locations, presence: true
     validates :categories, presence: true
     validates_processing_of :image

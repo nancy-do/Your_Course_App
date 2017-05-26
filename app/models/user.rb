@@ -31,14 +31,7 @@ class User < ApplicationRecord
     format: {with: VALID_PASSWORD_REGEX, message: "Password must at least contain an lower case, an upper case, a digit, a special character and contains 8+ characters"},
     :unless => Proc.new {|c| c.admin == true}
   #---------------------------Checking password 
-  
-  # with_options if: (:admin == true) do |admin|
-  #   PASSWORD_REGEX = /\b(password)\b/
-  #   EMAIL_REGEX = /\b(admin)\b/
-  #   admin.validates :password, format: {with: PASSWORD_REGEX}
-  #   admin.validates :email, format: {with: EMAIL_REGEX}
-  # end 
-  # Returns the hash digest of the given string.
+
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
