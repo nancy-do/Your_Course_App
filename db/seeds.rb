@@ -21,6 +21,12 @@ User.create!(name: "Jane",
             password: "fooBar123$$$",
             password_confirmation: "fooBar123$$$")
             
+User.create!(name: "admin",
+            email: "admin",
+            password: "password",
+            password_confirmation: "password", 
+            admin: true)
+            
 Category.create!(name:"Web Development")
 Category.create!(name:"Java")
 Category.create!(name:"Full Stack Dev")
@@ -31,15 +37,15 @@ def seed_image
 end
 
 Course.create!(name:"Programming 1", prerequisite: "Professional Computing Practise", 
-                description:"Example Description",user_id:1, location_ids: [1], category_ids: [2])
+                description:"Example Description", user_id:1, location_ids: [1], category_ids: [2])
 Course.create!(name:"Professional Computing Practise", prerequisite: "Programming 1", 
-                description:"Example Description",user_id:1, location_ids: [2], category_ids: [2])
+                description:"Example Description", user_id:1, location_ids: [2], category_ids: [2])
 Course.create!(name:"Rapid Application Development", prerequisite: "Programming 1", 
-                description:"Example Description",user_id:2, location_ids: [3], category_ids: [1])
+                description:"Example Description", user_id:2, location_ids: [3], category_ids: [1])
       
-Rating.create(likes:0, dislikes:0, courses_id:1) 
-Rating.create(likes:0, dislikes:0, courses_id:2) 
-Rating.create(likes:0, dislikes:0, courses_id:3) 
+Rating.create(likes:0, dislikes:0, course_id:1) 
+Rating.create(likes:0, dislikes:0, course_id:2) 
+Rating.create(likes:0, dislikes:0, course_id:3) 
 
                 
 

@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     member do 
       get :like
       get :dislike
+      get :reset
     end 
   end
   

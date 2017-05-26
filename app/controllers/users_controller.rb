@@ -6,6 +6,13 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  def destroy
+    User.find(params[:id]).destroy
+    decrement_ratings                             #Decrementing counter for course ratings
+    flash[:success] = "User Deleted"
+    redirect_to root_path
+  end
+  
   def create
    @user = User.new(user_params)
    @submit = "Register"
@@ -44,7 +51,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @users = User.all
+    @users = User.where.not(admin: true) 
   end
   
   private
@@ -68,5 +75,18 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         redirect_to(root_url) unless current_user == @user
     end
+    
+    def decrement_ratings
+      rates_made_by_user = Rate.where(user_id: params[:id])
+      rates_made_by_user.each do |rate|
+        @rating_id = rate.rating_id
+        if rate.pressed == 1
+          Rating.decrement_counter(:likes, @rating_id)
+        elsif rate.pressed == 0
+          Rating.decrement_counter(:dislikes, @rating_id)
+        end 
+        Rate.find(rate.id).destroy
+      end 
+    end 
     
 end

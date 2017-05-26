@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508135114) do
+ActiveRecord::Schema.define(version: 20170519101812) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -58,30 +58,32 @@ ActiveRecord::Schema.define(version: 20170508135114) do
   end
 
   create_table "rates", force: :cascade do |t|
-    t.integer  "users_id"
-    t.integer  "ratings_id"
+    t.integer  "user_id"
+    t.integer  "rating_id"
     t.boolean  "rated"
+    t.integer  "pressed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ratings_id"], name: "index_rates_on_ratings_id"
-    t.index ["users_id"], name: "index_rates_on_users_id"
+    t.index ["rating_id"], name: "index_rates_on_rating_id"
+    t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "likes"
     t.integer  "dislikes"
-    t.integer  "courses_id"
+    t.integer  "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["courses_id"], name: "index_ratings_on_courses_id"
+    t.index ["course_id"], name: "index_ratings_on_course_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "password_digest"
+    t.boolean  "admin",           default: false
   end
 
 end
