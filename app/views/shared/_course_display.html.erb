@@ -10,6 +10,11 @@
                     <span class="glyphicon glyphicon-remove"></span>
                     Delete this Course
                     <%end%>
+                    <br> <br>
+                    <%= link_to reset_rating_url(Rating.find_by(id: course.id).id), data: {confirm: "Are you sure?"}, class:"btn btn-primary" do%>
+                        <span class="glyphicon glyphicon-refresh"></span>
+                        Reset Ratings
+                    <%end%>
                 </div>
                 <% end %>
             <% end %>

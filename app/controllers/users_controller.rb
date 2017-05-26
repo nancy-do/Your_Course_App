@@ -61,14 +61,14 @@ class UsersController < ApplicationController
     def decrement_ratings
       rates_made_by_user = Rate.where(user_id: params[:id])
       rates_made_by_user.each do |rate|
-      @rating_id = rate.rating_id
-      if rate.pressed == 1
-        Rating.decrement_counter(:likes, @rating_id)
-      elsif rate.pressed == 0
-        Rating.decrement_counter(:dislikes, @rating_id)
+        @rating_id = rate.rating_id
+        if rate.pressed == 1
+          Rating.decrement_counter(:likes, @rating_id)
+        elsif rate.pressed == 0
+          Rating.decrement_counter(:dislikes, @rating_id)
+        end 
+        Rate.find(rate.id).destroy
       end 
-      Rate.find(rate.id).destroy
-    end 
     end 
     
 end
