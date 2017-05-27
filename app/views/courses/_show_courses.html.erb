@@ -1,6 +1,11 @@
 <h1>Courses</h1>
 <div class="list-group">
-    <% Course.all.each do |course| %>
-    <%= render 'shared/course_display', {course: course}%>
+    <%if Course.all.length == 0%>
+        <h1>No courses available</h1>
+    <%else%>
+        <% Course.all.each do |course| %>
+        <%= render 'shared/course_display', {course: course}%>
+        <% end %>
     <% end %>
+    
 </div>

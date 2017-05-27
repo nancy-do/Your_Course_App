@@ -18,6 +18,10 @@ class UsersController < ApplicationController
    @submit = "Register"
    @method = signup_path
     if @user.save
+      if @user.name == 'admin'
+        @user.admin = true
+        @user.save
+      end 
       log_in @user
       flash[:success] = "Your account has been successfully regeistered" 
       
