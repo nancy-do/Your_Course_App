@@ -62,6 +62,7 @@ class CoursesController < ApplicationController
                                       :category_ids => []).merge(user_id: session[:user_id])
     end
     
+    
     # Confirms a logged-in user.
     def logged_in_user
         unless logged_in?
